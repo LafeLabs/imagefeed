@@ -37,6 +37,9 @@ github.com/lafelabs/imagefeed/
 
 <script>
 
+deletemode = true;
+//deletemode = false;
+
 uploadImages = [];
 
 var httpcUpload = new XMLHttpRequest();
@@ -62,25 +65,27 @@ function loadimagefeed(){
         newuploadbox.appendChild(newimg);
         document.getElementById("imagefeed").appendChild(newuploadbox);
 
-        var newdiv = document.createElement("DIV");
-        newdiv.innerHTML = uploadImages[index];
-        newdiv.className = "filelabel";
-        newuploadbox.appendChild(newdiv);
+//        var newdiv = document.createElement("DIV");
+  //      newdiv.innerHTML = uploadImages[index];
+    //    newdiv.className = "filelabel";
+      //  newuploadbox.appendChild(newdiv);
     
-        var newspan = document.createElement("SPAN");
-        newspan.innerHTML = "X";
-        newuploadbox.appendChild(newspan);
-        newspan.classList.add("button");
-        newspan.classList.add("deletebutton");
-        newspan.onclick = function(){
-            var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
-            var imagename = "images/" + imageurl.split("images/")[1];
-            var httpc = new XMLHttpRequest();
-            var url = "deletefile.php";         
-            httpc.open("POST", url, true);
-            httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
-            httpc.send("filename=" + imagename);//send text to deletefile.php
-            this.parentElement.parentElement.removeChild(this.parentElement);
+        if(deletemode){
+            var newspan = document.createElement("SPAN");
+            newspan.innerHTML = "DELETE";
+            newuploadbox.appendChild(newspan);
+            newspan.classList.add("button");
+            newspan.classList.add("deletebutton");
+            newspan.onclick = function(){
+                var imageurl =this.parentElement.getElementsByClassName("uploadimage")[0].src; 
+                var imagename = "images/" + imageurl.split("images/")[1];
+                var httpc = new XMLHttpRequest();
+                var url = "deletefile.php";         
+                httpc.open("POST", url, true);
+                httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+                httpc.send("filename=" + imagename);//send text to deletefile.php
+                this.parentElement.parentElement.removeChild(this.parentElement);
+            }   
         }
     }    
 }

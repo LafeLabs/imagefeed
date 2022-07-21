@@ -1,3 +1,7 @@
+<p style = "font-size:5em">
+    <a href = "index.html">home</a>
+</p>
+
 <?php
 $target_dir = "images/";
 $files = scandir(getcwd()."/images");
@@ -26,8 +30,14 @@ else{
 
 ?>
 
-<p style = "font-size:5em">
-    <a href = "index.html">home</a>
-</p>
 
-
+<style>
+    body{
+        background-color:#808080;
+        font-size:1em;
+    }
+    a{
+        color:#ff2cb4;
+        font-size:2em;
+    }
+</style>
