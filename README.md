@@ -1,9 +1,14 @@
-# PI CRUST Server
+# Image feed  Server
+
+
 
 ## [index.html](index.html)
 
 ## [github.com/lafelabs/imagefeed](https://github.com/LafeLabs/imagefeed)
 
+## [qrcode.html](qrcode.html)
+
+Images must be under 1 megabyte to upload over the web.  Drag and drop images into the "images" folder in the web folder or upload them over the web. 
 
 ### Install on Windows or Mac
 
